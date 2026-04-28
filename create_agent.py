@@ -1,6 +1,7 @@
 import os
 
 from dotenv import load_dotenv
+
 # from tavily import TavilyClient
 from langchain_tavily import TavilySearch
 
@@ -11,6 +12,7 @@ from langchain.messages import HumanMessage
 from langchain.tools import tool
 from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 # tavily = TavilySearch()
 
@@ -32,6 +34,7 @@ from langchain_openai import ChatOpenAI
 # llm = ChatOllama(temperature=0, model="gemma3:270m")
 # llm = ChatOllama(temperature=0, model="llama3.2")
 llm = ChatOpenAI(model="gpt-5-nano")
+# llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 tools = [TavilySearch()]
 agent = create_agent(model=llm, tools=tools)
 
